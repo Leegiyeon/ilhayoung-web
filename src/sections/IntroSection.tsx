@@ -11,14 +11,13 @@ export default function IntroSection() {
       setTimeout(() => setShowLine([true, false, false]), 300),
       setTimeout(() => setShowLine([true, true, false]), 900),
       setTimeout(() => setShowLine([true, true, true]), 1500),
-      setTimeout(() => setShowDesc(true), 2300),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
   const lines = [
     { head: '일', text: '손이 부족한 사장님을 위해' },
-    { head: '하', text: '나의 플랫폼으로 채용과 출결 관리까지' },
+    { head: '하', text: '나의 플랫폼으로 채용과 출결관리까지' },
     { head: '영', text: '업에만 집중할 수 있도록 도와드려요' },
   ];
 
@@ -51,18 +50,6 @@ export default function IntroSection() {
           ))}
         </div>
       </div>
-
-      {/* 플랫폼 설명 문구: 위치 고정 */}
-      {showDesc && (
-        <p
-          className="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 
-               text-sm sm:text-lg text-white font-medium text-center leading-relaxed 
-               px-4 animate-fade-slide-up"
-        >
-          단기 일자리 연결과 인사관리를 간편하게,<br />
-          사장님과 청년을 잇는 플랫폼
-        </p>
-      )}
     </section>
   );
 }

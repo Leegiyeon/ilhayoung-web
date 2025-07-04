@@ -20,6 +20,7 @@
 }
 
 @import 'swiper/css';
+@import 'swiper/css/navigation';
 
 body {
   background: var(--background);

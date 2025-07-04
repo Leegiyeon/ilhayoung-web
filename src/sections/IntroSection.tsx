@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 export default function IntroSection() {
   const [showLine, setShowLine] = useState([false, false, false]);
-  const [showDesc, setShowDesc] = useState(false);
 
   useEffect(() => {
     const timers = [
@@ -35,8 +34,9 @@ export default function IntroSection() {
           {lines.map(({ head, text }, idx) => (
             <div
               key={idx}
-              className={`text-xl sm:text-3xl font-semibold flex items-center justify-start transition-all duration-700 ease-in-out ${showLine[idx] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
+              className={`text-xl sm:text-3xl font-semibold flex items-center justify-start transition-all duration-700 ease-in-out ${
+                showLine[idx] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             >
               <div className="flex items-center">
                 <span className="w-6 sm:w-8 text-4xl sm:text-5xl font-extrabold text-emerald-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mr-3 text-left">

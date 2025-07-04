@@ -1,33 +1,65 @@
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function IntroSection() {
+  const [showLine, setShowLine] = useState([false, false, false]);
+  const [showDescription, setShowDescription] = useState(false);
+
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => setShowLine([true, false, false]), 300),
+      setTimeout(() => setShowLine([true, true, false]), 900),
+      setTimeout(() => setShowLine([true, true, true]), 1500),
+      setTimeout(() => setShowDescription(true), 2200), // 마지막 삼행시 이후 설명 문구 등장
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const lines = [
+    { head: '일', text: '손이 부족한 사장님을 위해' },
+    { head: '하', text: '나의 플랫폼으로 인력 채용부터 출결 관리까지' },
+    { head: '영', text: '업에만 집중할 수 있도록 도와드려요' },
+  ];
+
   return (
     <section
       id="intro"
-      className="relative w-full h-screen flex items-center justify-center text-center text-white"
+      className="relative w-full h-screen flex items-center justify-center text-center text-white overflow-hidden"
     >
-      {/* 배경 이미지 */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/img/intro.png"
-          alt="서비스 소개 배경"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
-      </div>
+      {/* 배경 애니메이션 */}
+      <div className="absolute inset-0 z-0 animate-gradient bg-gradient-to-br from-indigo-400 via-sky-300 to-pink-300" />
 
       {/* 텍스트 콘텐츠 */}
-      <div className="relative z-10 px-4 max-w-2xl">
-        <h1 className="text-3xl sm:text-5xl font-bold mb-6">일이 필요한 청년, <br /> 인력이 필요한 가게</h1>
-        <p className="text-lg sm:text-xl leading-relaxed">
-          일하영은 제주 지역 소상공인을 위한 단기 인력 연결 플랫폼입니다.
-          <br className="hidden sm:block" />
-          간편한 구직, 맞춤형 일자리 매칭, 그리고 출결 기반 인사관리까지!
-        </p>
+      <div className="relative z-10 px-6 max-w-3xl">
+        <div className="space-y-6">
+          {lines.map(({ head, text }, idx) => (
+            <div
+              key={idx}
+              className={`text-xl sm:text-3xl font-semibold flex justify-center items-center transition-opacity duration-700 ease-in-out ${
+                showLine[idx] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <span className="text-4xl sm:text-5xl font-extrabold text-emerald-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mr-3">
+                {head}
+              </span>
+              <span className="text-white drop-shadow-[0_1.5px_4px_rgba(0,0,0,0.8)]">
+                {text}
+              </span>
+            </div>
+          ))}
+
+          {/* 플랫폼 설명 문구 (지연 등장) */}
+          <p
+            className={`mt-8 text-base sm:text-lg text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition-opacity duration-700 ease-in-out ${
+              showDescription ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            <span className="bg-black/10 px-3 py-1 rounded-lg">
+              단기 일자리 연결과 인사관리를 간편하게, 사장님과 청년을 잇는 플랫폼
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   );

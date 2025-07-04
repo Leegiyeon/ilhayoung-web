@@ -16,7 +16,7 @@ export default function IntroSection() {
 
   const lines = [
     { head: '일', text: '손이 부족한 사장님을 위해' },
-    { head: '하', text: '나의 플랫폼으로 채용과 출결관리까지' },
+    { head: '하', text: '나의 플랫폼으로 채용, 출결관리까지' },
     { head: '영', text: '업에만 집중할 수 있도록 도와드려요' },
   ];
 

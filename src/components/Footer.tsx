@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-100 text-gray-700 text-sm mt-16 py-6">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-4">
-        
+
         {/* 만든이 정보 */}
         <div>
           <h3 className="font-semibold mb-1">👩‍💻 만든이 정보</h3>

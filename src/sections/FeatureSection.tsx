@@ -13,29 +13,29 @@ export default function FeatureSection() {
     isOpen: boolean;
     title: string;
     description: string;
-    imageSrc: string;
+    imageSrcs: string[];
   }>({
     isOpen: false,
     title: '',
     description: '',
-    imageSrc: '',
+    imageSrcs: [],
   });
 
   const featureItems = [
     {
-      src: '/img/feature1.png',
-      alt: '채용부터 출결·급여까지 가게 운영을 한번에',
-      detail: '공고 등록부터 지원 현황 확인, 근태 관리와 급여 지급까지 한 번에 처리할 수 있습니다.',
+      srcs: ['/img/manager1.png', '/img/manager2.png'],
+      alt: '사장님의 인사관리 도우미',
+      detail: '채용 공고 등록부터 출결 및 급여 처리까지 한 번에 관리할 수 있습니다.',
     },
     {
-      src: '/img/feature2.png',
-      alt: '간편한 공고 지원',
-      detail: '원하는 조건에 맞는 공고를 자동으로 확인하고, 클릭 한 번으로 간편 지원하면 매니저가 직접 연락드립니다.',
+      srcs: ['/img/staff1.png', '/img/staff2.png'],
+      alt: '간편한 단기 알바 지원',
+      detail: '위치와 시간 설정만으로 적합한 공고를 확인하고, 간편하게 지원할 수 있습니다.',
     },
     {
-      src: '/img/feature3.png',
-      alt: '반복 근무자 중심의 빠른 대체 구인',
-      detail: '기존 근무이력이 있는 인력에게 빠르게 요청을 전송하고, 스케줄 기반으로 대체 인력을 손쉽게 구할 수 있습니다.',
+      srcs: ['/img/replace1.png', '/img/replace2.png'],
+      alt: '대체 인력 빠른 섭외',
+      detail: '대체 스케줄 확인 후 기존 근무자에게 빠르게 요청할 수 있어 업무 공백을 줄일 수 있습니다.',
     },
   ];
 
@@ -44,7 +44,7 @@ export default function FeatureSection() {
       isOpen: true,
       title: item.alt,
       description: item.detail,
-      imageSrc: item.src,
+      imageSrcs: item.srcs,
     });
   };
 
@@ -73,7 +73,7 @@ export default function FeatureSection() {
                   className="relative w-full h-64 sm:h-96 cursor-pointer"
                   onClick={() => openModal(item)}
                 >
-                  <Image src={item.src} alt={item.alt} fill className="object-cover" />
+                  <Image src={item.srcs[0]} alt={item.alt} fill className="object-cover" />
                   <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center py-4">
                     {item.alt}
                   </div>
@@ -110,7 +110,14 @@ export default function FeatureSection() {
         </div>
       </div>
 
-      <Modal {...modalData} onClose={closeModal} />
+      {/* 슬라이드 이미지 모달 */}
+      <Modal
+        isOpen={modalData.isOpen}
+        onClose={closeModal}
+        title={modalData.title}
+        description={modalData.description}
+        imageSrcs={modalData.imageSrcs}
+      />
     </section>
   );
 }

@@ -24,18 +24,18 @@ export default function FeatureSection() {
   const featureItems = [
     {
       src: '/img/feature1.png',
-      alt: '출결 기반 출근 체크 기능',
-      detail: '출결 관리는 QR코드 기반으로 자동 체크됩니다. 출근 이력은 인사 리포트로 가공됩니다.',
+      alt: '채용부터 출결·급여까지 가게 운영을 한번에',
+      detail: '공고 등록부터 지원 현황 확인, 근태 관리와 급여 지급까지 한 번에 처리할 수 있습니다.',
     },
     {
       src: '/img/feature2.png',
-      alt: '간편한 일자리 매칭',
-      detail: '구직자는 일정을 등록하면 자동으로 맞춤형 공고 리스트를 확인할 수 있습니다.',
+      alt: '간편한 공고 지원',
+      detail: '원하는 조건에 맞는 공고를 자동으로 확인하고, 클릭 한 번으로 간편 지원하면 매니저가 직접 연락드립니다.',
     },
     {
       src: '/img/feature3.png',
-      alt: '가게별 구인 관리 대시보드',
-      detail: '사장님은 공고 등록과 출결 현황을 대시보드에서 간편하게 관리할 수 있습니다.',
+      alt: '반복 근무자 중심의 빠른 대체 구인',
+      detail: '기존 근무이력이 있는 인력에게 빠르게 요청을 전송하고, 스케줄 기반으로 대체 인력을 손쉽게 구할 수 있습니다.',
     },
   ];
 
@@ -82,7 +82,6 @@ export default function FeatureSection() {
             ))}
           </Swiper>
 
-          {/* 화살표 스타일링을 위한 className hook */}
           <style jsx global>{`
             .swiper-button-prev,
             .swiper-button-next {
@@ -111,7 +110,6 @@ export default function FeatureSection() {
         </div>
       </div>
 
-      {/* 모달 */}
       <Modal {...modalData} onClose={closeModal} />
     </section>
   );

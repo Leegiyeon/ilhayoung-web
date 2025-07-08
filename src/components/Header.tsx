@@ -20,8 +20,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* 로고 */}
         <div className="flex items-center">
-          <Image src="/img/logo.png" alt="일하영 로고" width={40} height={40} />
-          <span className="ml-2 text-xl font-bold text-gray-800">일하영</span>
+          <Image src="/img/logo.png" alt="일하영 로고" width={60} height={60} />
         </div>
 
         {/* 데스크탑 메뉴 */}

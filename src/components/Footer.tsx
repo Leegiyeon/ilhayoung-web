@@ -10,7 +10,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold mb-1">📍 제주 갭이어</h3>
           <p>
-            청년의 성장을 돕는 제주형 갭이어 프로젝트를 통해 <br />
+            청년의 성장을 돕는 제주 갭이어 프로젝트를 통해 <br />
             일하영 서비스가 기획 및 개발되었습니다.
           </p>
         </div>

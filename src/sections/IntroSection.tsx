@@ -19,7 +19,7 @@ export default function IntroSection() {
     { head: '일', text: '손이 부족한 사장님을 위해' },
     { head: '하', text: '나의 플랫폼으로 채용, 출결관리까지' },
     { head: '영', text: '업에만 집중할 수 있도록 도와드려요' },
-    { head: '', text: <><br />지금, 일하영에서 연결의 경험을 시작해보세요.</> },
+    { head: '', text: <><br />지금, 일하영에서 함께 시작해보세요.</> },
   ];
 
   return (
@@ -40,9 +40,9 @@ export default function IntroSection() {
                 showLine[idx] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <div className="flex items-center">
+              <div className="flex items-end">
                 {head && (
-                  <span className="w-8 sm:w-10 text-4xl sm:text-5xl font-extrabold text-emerald-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mr-4 text-left">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-emerald-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mr-2">
                     {head}
                   </span>
                 )}

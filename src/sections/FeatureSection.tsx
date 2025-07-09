@@ -87,7 +87,7 @@ export default function FeatureSection() {
                 >
                   <Image src={item.thumbnail} alt={item.alt} fill className="object-cover rounded-xl" />
 
-                  {/* 우측 상단 '탭하여 상세보기' 가이드 */}
+                  {/* 우측 상단 '탭하여 상세보기' */}
                   <div className="absolute top-3 right-3 bg-white/60 border border-white text-gray-800 font-semibold text-sm sm:text-base px-3 py-1.5 rounded-full shadow-sm backdrop-blur-md">
                     탭하여 상세보기
                   </div>
@@ -95,7 +95,9 @@ export default function FeatureSection() {
                   {/* 하단 텍스트 오버레이 */}
                   <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-4 text-sm sm:text-base">
                     <strong className="block text-lg sm:text-xl">{item.alt}</strong>
-                    <span className="block mt-1 text-xs sm:text-sm">{item.detail[0]}</span>
+                    <p className="block mt-1 text-balance max-w-[90%] mx-auto text-xs sm:text-sm leading-relaxed">
+                      {item.detail[0]}
+                    </p>
                   </div>
                 </div>
               </SwiperSlide>

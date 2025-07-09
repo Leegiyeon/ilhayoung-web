@@ -18,10 +18,16 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* 로고 */}
-        <div className="flex items-center">
+        {/* 로고 클릭 시 최상단으로 스크롤 */}
+        <ScrollLink
+          to="top"
+          smooth={true}
+          duration={500}
+          offset={-70}
+          className="cursor-pointer flex items-center"
+        >
           <Image src="/img/logo.png" alt="일하영 로고" width={60} height={60} />
-        </div>
+        </ScrollLink>
 
         {/* 데스크탑 메뉴 */}
         <nav className="hidden md:flex space-x-6">

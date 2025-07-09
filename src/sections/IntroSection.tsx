@@ -29,17 +29,17 @@ export default function IntroSection() {
       <div className="absolute inset-0 z-0 animate-gradient bg-gradient-to-br from-indigo-400 via-sky-300 to-pink-300" />
 
       {/* 텍스트 콘텐츠 */}
-      <div className="relative z-10 px-6 max-w-3xl w-full flex flex-col items-center">
-        <div className="space-y-4">
+      <div className="relative z-10 px-6 max-w-[860px] w-full flex flex-col items-center">
+        <div className="space-y-5">
           {lines.map(({ head, text }, idx) => (
             <div
               key={idx}
-              className={`text-xl sm:text-3xl font-semibold flex items-center justify-start transition-all duration-700 ease-in-out ${
+              className={`text-2xl sm:text-4xl font-semibold flex items-center justify-start transition-all duration-700 ease-in-out ${
                 showLine[idx] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
               <div className="flex items-center">
-                <span className="w-6 sm:w-8 text-4xl sm:text-5xl font-extrabold text-emerald-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mr-3 text-left">
+                <span className="w-8 sm:w-10 text-5xl sm:text-6xl font-extrabold text-emerald-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mr-4 text-left">
                   {head}
                 </span>
                 <span className="text-white text-left drop-shadow-[0_1.5px_4px_rgba(0,0,0,0.8)]">

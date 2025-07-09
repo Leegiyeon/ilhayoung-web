@@ -42,7 +42,8 @@ export default function FeatureSection() {
     },
     {
       thumbnail: '/img/thumbnail3.png',
-      modalImages: ['/img/replace1.png', '/img/replace2.png'],
+      // modalImages: ['/img/replace1.png', '/img/replace2.png'],
+      modalImages: ['/img/team_logo_white.png'],
       alt: '대체 인력 빠른 섭외',
       detail: [
         '대체 스케줄 확인 후 기존 근무자에게 빠르게 요청할 수 있어 업무 공백을 줄일 수 있습니다.',

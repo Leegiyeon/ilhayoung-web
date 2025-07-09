@@ -9,7 +9,16 @@ export default function Footer() {
 
         {/* 제주 갭이어 정보 */}
         <div>
-          <h3 className="font-semibold mb-1">📍 제주 갭이어</h3>
+          <div className="flex items-center gap-2 mb-1">
+            <Image
+              src="/img/jeju_logo.png"
+              alt="제주 갭이어 로고"
+              width={20}
+              height={20}
+              className="inline-block"
+            />
+            <h3 className="font-semibold">제주 갭이어</h3>
+          </div>
           <p>
             청년의 성장을 돕는 제주 갭이어 프로젝트를 통해 <br />
             일하영 서비스가 기획 및 개발되었습니다.

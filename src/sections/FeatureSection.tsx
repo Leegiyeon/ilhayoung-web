@@ -23,17 +23,20 @@ export default function FeatureSection() {
 
   const featureItems = [
     {
-      srcs: ['/img/manager1.png', '/img/manager2.png'],
+      thumbnail: '/img/thumbnail1.png',
+      modalImages: ['/img/manager1.png', '/img/manager2.png'],
       alt: '사장님의 인사관리 도우미',
       detail: '채용 공고 등록부터 출결 및 급여 처리까지 한 번에 관리할 수 있습니다.',
     },
     {
-      srcs: ['/img/staff1.png', '/img/staff2.png'],
+      thumbnail: '/img/thumbnail2.png',
+      modalImages: ['/img/staff1.png', '/img/staff2.png'],
       alt: '간편한 단기 알바 지원',
       detail: '위치와 시간 설정만으로 적합한 공고를 확인하고, 간편하게 지원할 수 있습니다.',
     },
     {
-      srcs: ['/img/replace1.png', '/img/replace2.png'],
+      thumbnail: '/img/thumbnail3.png',
+      modalImages: ['/img/replace1.png', '/img/replace2.png'],
       alt: '대체 인력 빠른 섭외',
       detail: '대체 스케줄 확인 후 기존 근무자에게 빠르게 요청할 수 있어 업무 공백을 줄일 수 있습니다.',
     },
@@ -44,7 +47,7 @@ export default function FeatureSection() {
       isOpen: true,
       title: item.alt,
       description: item.detail,
-      imageSrcs: item.srcs,
+      imageSrcs: item.modalImages,
     });
   };
 
@@ -70,10 +73,10 @@ export default function FeatureSection() {
             {featureItems.map((item, index) => (
               <SwiperSlide key={index}>
                 <div
-                  className="relative w-full h-64 sm:h-96 cursor-pointer"
+                  className="relative w-full h-[28rem] sm:h-[36rem] cursor-pointer"
                   onClick={() => openModal(item)}
                 >
-                  <Image src={item.srcs[0]} alt={item.alt} fill className="object-cover" />
+                  <Image src={item.thumbnail} alt={item.alt} fill className="object-cover" />
                   <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center py-4">
                     {item.alt}
                   </div>
@@ -85,39 +88,32 @@ export default function FeatureSection() {
           <style jsx global>{`
             .swiper-button-prev,
             .swiper-button-next {
-              background-color: white;
+              background-color: rgba(255, 255, 255, 0.3);
               border-radius: 9999px;
-              width: 44px;
-              height: 44px;
-              box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-              color: #2563eb;
+              width: 32px;
+              height: 32px;
+              box-shadow: none;
+              color: #555;
               top: 50%;
               transform: translateY(-50%);
             }
 
             .swiper-button-prev:hover,
             .swiper-button-next:hover {
-              background-color: #2563eb;
+              background-color: rgba(0, 0, 0, 0.3);
               color: white;
             }
 
             .swiper-button-prev::after,
             .swiper-button-next::after {
-              font-size: 18px;
+              font-size: 16px;
               font-weight: bold;
             }
           `}</style>
         </div>
       </div>
 
-      {/* 슬라이드 이미지 모달 */}
-      <Modal
-        isOpen={modalData.isOpen}
-        onClose={closeModal}
-        title={modalData.title}
-        description={modalData.description}
-        imageSrcs={modalData.imageSrcs}
-      />
+      <Modal {...modalData} onClose={closeModal} />
     </section>
   );
 }

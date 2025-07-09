@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -11,37 +11,32 @@ type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  imageSrcs: { src: string; caption: string }[];
+  description: string;
+  imageSrcs: string[];
 };
 
-export default function Modal({ isOpen, onClose, title, imageSrcs }: ModalProps) {
-  const [currentCaption, setCurrentCaption] = useState('');
-  const [swiperInstance, setSwiperInstance] = useState<any>(null);
-
+export default function Modal({
+  isOpen,
+  onClose,
+  title,
+  description,
+  imageSrcs,
+}: ModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onClose();
+      }
     };
 
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
-      // 초기 설명 설정
-      if (imageSrcs.length > 0 && imageSrcs[0].caption) {
-        setCurrentCaption(imageSrcs[0].caption);
-      }
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, imageSrcs]);
-
-  const handleSlideChange = () => {
-    if (!swiperInstance) return;
-    const realIndex = swiperInstance.realIndex || 0;
-    const newCaption = imageSrcs[realIndex]?.caption || '';
-    setCurrentCaption(newCaption);
-  };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -52,7 +47,7 @@ export default function Modal({ isOpen, onClose, title, imageSrcs }: ModalProps)
     >
       <div
         className="bg-white rounded-lg shadow-xl max-w-md w-full relative p-6 max-h-[95vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -68,20 +63,16 @@ export default function Modal({ isOpen, onClose, title, imageSrcs }: ModalProps)
             navigation
             spaceBetween={10}
             className="rounded-md"
-            onSwiper={setSwiperInstance}
-            onSlideChange={handleSlideChange}
           >
-            {imageSrcs.map((item, idx) => (
+            {imageSrcs.map((src, idx) => (
               <SwiperSlide key={idx}>
                 <div className="relative w-full h-[28rem] sm:h-[32rem]">
-                  {item.src ? (
-                    <Image
-                      src={item.src}
-                      alt={`${title}-${idx}`}
-                      fill
-                      className="object-cover rounded-md"
-                    />
-                  ) : null}
+                  <Image
+                    src={src || '/img/placeholder.png'}
+                    alt={`${title}-${idx}`}
+                    fill
+                    className="object-cover rounded-md"
+                  />
                 </div>
               </SwiperSlide>
             ))}
@@ -90,7 +81,9 @@ export default function Modal({ isOpen, onClose, title, imageSrcs }: ModalProps)
 
         {/* 텍스트 콘텐츠 */}
         <h3 className="text-xl font-bold mb-3 text-gray-800">{title}</h3>
-        <p className="text-gray-700 text-base leading-relaxed whitespace-pre-line">{currentCaption}</p>
+        <p className="text-gray-700 text-base leading-relaxed whitespace-pre-line">
+          {description}
+        </p>
 
         {/* 화살표 스타일 커스터마이징 */}
         <style jsx global>{`

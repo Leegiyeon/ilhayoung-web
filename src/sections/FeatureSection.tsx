@@ -27,8 +27,8 @@ export default function FeatureSection() {
       modalImages: ['/img/manager1.png', '/img/manager2.png'],
       alt: '사장님의 인사관리 도우미',
       detail: [
-        '출결 체크부터 급여 정산까지 한 화면에서 관리할 수 있어요.',
-        '여러 명의 아르바이트도 간편하게 등록하고 관리할 수 있어요.',
+        '채용 공고 등록부터 출결 및 급여 처리까지 한 번에 관리할 수 있습니다.',
+        '매장 운영에 필요한 인력 관리를 효율적으로 도와줍니다.',
       ],
     },
     {
@@ -36,8 +36,8 @@ export default function FeatureSection() {
       modalImages: ['/img/staff1.png', '/img/staff2.png'],
       alt: '간편한 단기 알바 지원',
       detail: [
-        '위치 기반으로 가까운 일자리를 바로 확인할 수 있어요.',
-        '원클릭으로 지원하고 출결을 관리할 수 있어요.',
+        '위치와 시간 설정만으로 적합한 공고를 확인하고, 간편하게 지원할 수 있습니다.',
+        '원클릭 지원으로 알바 찾기가 더 쉬워집니다.',
       ],
     },
     {
@@ -45,8 +45,8 @@ export default function FeatureSection() {
       modalImages: ['/img/replace1.png', '/img/replace2.png'],
       alt: '대체 인력 빠른 섭외',
       detail: [
-        '갑작스런 결원에도 대체 근무자를 손쉽게 요청할 수 있어요.',
-        '기존 근무자가 직접 대체자 스케줄을 확인하고 응답해요.',
+        '대체 스케줄 확인 후 기존 근무자에게 빠르게 요청할 수 있어 업무 공백을 줄일 수 있습니다.',
+        '突발 상황에도 빠르게 대응할 수 있는 시스템을 제공합니다.',
       ],
     },
   ];
@@ -85,12 +85,14 @@ export default function FeatureSection() {
                   className="relative w-full h-[28rem] sm:h-[36rem] cursor-pointer"
                   onClick={() => openModal(item)}
                 >
-                  <Image src={item.thumbnail} alt={item.alt} fill className="object-cover" />
+                  <Image src={item.thumbnail} alt={item.alt} fill className="object-cover rounded-xl" />
 
-                  {/* 텍스트 오버레이 */}
-                  <div className="absolute top-0 right-0 m-3 bg-black/60 text-white text-xs sm:text-sm px-3 py-1 rounded-full">
+                  {/* 우측 상단 '탭하여 상세보기' 가이드 */}
+                  <div className="absolute top-3 right-3 bg-white/60 border border-white text-gray-800 font-semibold text-sm sm:text-base px-3 py-1.5 rounded-full shadow-sm backdrop-blur-md">
                     탭하여 상세보기
                   </div>
+
+                  {/* 하단 텍스트 오버레이 */}
                   <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-4 text-sm sm:text-base">
                     <strong className="block text-lg sm:text-xl">{item.alt}</strong>
                     <span className="block mt-1 text-xs sm:text-sm">{item.detail[0]}</span>
@@ -100,7 +102,6 @@ export default function FeatureSection() {
             ))}
           </Swiper>
 
-          {/* Swiper 화살표 스타일 */}
           <style jsx global>{`
             .swiper-button-prev,
             .swiper-button-next {

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "일하영은 일하는 사람들을 위한 플랫폼으로, 간편한 알바 지원과 효율적인 인사 관리를 제공합니다.",
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
   },
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
@@ -17,7 +18,16 @@ export default function Footer() {
 
         {/* 만든이 정보 */}
         <div>
-          <h3 className="font-semibold mb-1">👩‍💻 만든이 정보</h3>
+          <div className="flex items-center gap-2 mb-1">
+            <Image
+              src="/img/team_logo.png"
+              alt="팀 로고"
+              width={20}
+              height={20}
+              className="inline-block"
+            />
+            <h3 className="font-semibold">만든이 정보</h3>
+          </div>
           <div className="flex items-center gap-2 mb-1">
             <FaGithub className="text-lg" />
             <a

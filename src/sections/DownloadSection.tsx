@@ -1,15 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 
 export default function DownloadSection() {
-  const [open, setOpen] = useState<'android' | 'ios' | null>(null);
-
-  const toggle = (target: 'android' | 'ios') => {
-    setOpen((prev) => (prev === target ? null : target));
-  };
-
   return (
     <section
       id="download"
@@ -21,52 +14,37 @@ export default function DownloadSection() {
         </h2>
 
         <div className="space-y-6">
-          {/* iOS 토글 */}
-          <div className="border rounded-lg shadow-sm">
+          {/* iOS 다운로드 */}
+          <div className="flex justify-center">
             <button
-              className="w-full text-center px-6 py-4 text-lg font-semibold text-white bg-gray-700 hover:bg-black active:bg-black rounded-md transition-colors duration-200 ease-in-out shadow-md"
-              onClick={() => toggle('ios')}
+              onClick={() => alert('iOS 버전은 7월 중순에 출시 예정입니다.')}
+              className="w-full max-w-xs mx-auto flex items-center justify-center gap-3 px-6 py-3 bg-[#0D0D0D] text-white rounded-lg shadow hover:bg-[#1a1a1a] transition"
             >
-              🍎 iOS 다운로드
+              <Image
+                src="/img/logo_appstore.png"
+                alt="App Store"
+                width={24}
+                height={24}
+              />
+              <span className="text-sm font-medium">App Store에서 받기</span>
             </button>
-            {open === 'ios' && (
-              <div className="px-6 py-4 bg-gray-50 border-t text-center">
-                <p className="mb-2 text-sm text-gray-600">QR 코드를 스캔해 다운로드하세요</p>
-                <div className="w-40 h-40 mx-auto relative">
-                  <Image
-                    src="/img/qr_ios.png"
-                    alt="iOS QR"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            )}
           </div>
 
-          {/* Android 토글 */}
-          <div className="border rounded-lg shadow-sm">
+          {/* Android 다운로드 */}
+          <div className="flex justify-center">
             <button
-              className="w-full text-center px-6 py-4 text-lg font-semibold text-white bg-gray-700 hover:bg-black active:bg-black rounded-md transition-colors duration-200 ease-in-out shadow-md"
-              onClick={() => toggle('android')}
+              onClick={() => alert('Android 버전은 7월 중순에 출시 예정입니다.')}
+              className="w-full max-w-xs mx-auto flex items-center justify-center gap-3 px-6 py-3 bg-[#2F8140] text-white rounded-lg shadow hover:bg-[#2c8a45] transition"
             >
-              📱 Android 다운로드
+              <Image
+                src="/img/logo_playstore.png"
+                alt="Google Play"
+                width={24}
+                height={24}
+              />
+              <span className="text-sm font-medium">Google Play에서 받기</span>
             </button>
-            {open === 'android' && (
-              <div className="px-6 py-4 bg-gray-50 border-t text-center">
-                <p className="mb-2 text-sm text-gray-600">QR 코드를 스캔해 다운로드하세요</p>
-                <div className="w-40 h-40 mx-auto relative">
-                  <Image
-                    src="/img/qr_android.png"
-                    alt="Android QR"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            )}
           </div>
-
         </div>
       </div>
     </section>

@@ -27,7 +27,7 @@ export default function FeatureSection() {
       modalImages: ['/img/manager1.png', '/img/manager2.png'],
       alt: '사장님의 인사관리 도우미',
       detail: [
-        '채용 공고 등록부터 출결 및 급여 처리까지 한 번에 관리할 수 있습니다.',
+        '채용공고 등록, 출결 및 급여 처리까지 한 번에 관리할 수 있습니다.',
         '매장 운영에 필요한 인력 관리를 효율적으로 도와줍니다.',
       ],
     },
@@ -46,7 +46,7 @@ export default function FeatureSection() {
       alt: '대체 인력 빠른 섭외',
       detail: [
         '대체 스케줄 확인 후 기존 근무자에게 빠르게 요청할 수 있어 업무 공백을 줄일 수 있습니다.',
-        '突발 상황에도 빠르게 대응할 수 있는 시스템을 제공합니다.',
+        '돌발 상황에도 빠르게 대응할 수 있는 시스템을 제공합니다.',
       ],
     },
   ];
